@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="container">
+        <button id="toggleBut" class="discreet">☰</button>
         <div class="sidebar" id="sidebar">
-            <img src="src/img/logo.png" class="logo-sidebar">
+            <h1>Menu Sidebar</h1>
             <ul>
                 <li><a href="#">Página 1</a></li>
                 <li><a href="#">Página 2</a></li>
@@ -19,7 +20,18 @@
         <div class="content">
             <!-- Conteúdo da página vai aqui -->
         </div>
-        <button id="toggleSidebar" class="discreet">☰</button>
+    </div>
+    <div class="header">
+        <div class="user-info">
+            <img src="perfil.jpg" alt="Foto de Perfil">
+            <span>Nome do Usuário</span>
+        </div>
+        <div class="dropdown">
+            <button id="toggleDropdown" class="dropbtn">▼</button>
+            <div class="dropdown-content">
+                <a href="#">Desconectar</a>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

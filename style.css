@@ -9,88 +9,121 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Container para posicionar elementos */
+/* Estilos para o cabeçalho no topo */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; /* Para garantir que o cabeçalho esteja na frente do conteúdo */
+}
+
+/* Estilos para a foto de perfil */
+.user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Para tornar a imagem circular */
+    margin-right: 10px;
+}
+
+/* Estilos para o nome do usuário */
+.user-info span {
+    font-weight: bold;
+}
+
+/* Estilos para a seta do dropdown */
+.dropbtn {
+    font-size: 24px;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Estilos para o dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Estilos para o conteúdo do dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    z-index: 1;
+}
+
+/* Estilos para os links no dropdown */
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Estilo quando o cursor passa sobre o link no dropdown */
+.dropdown-content a:hover {
+    background-color: #444;
+}
+
+/* Exibir o dropdown quando o botão for clicado */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilos para o restante do conteúdo (sidebar e conteúdo principal) */
 .container {
     display: flex;
     position: relative;
+    margin-top: 60px; /* Altura do cabeçalho + margem superior */
 }
 
-/* Botão discreto */
+/* Estilos para o sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Colocado à frente do conteúdo */
+    display: none; /* Inicialmente oculto */
+}
+
+/* Estilos para o botão do sidebar */
 .discreet {
-    position: absolute;
-    color: #ff4800;
-    top: 10px;
-    left: 260px;
     background-color: transparent;
     border: none;
     font-size: 24px;
     cursor: pointer;
-    transition: transform 0.1s ease;
-}
-
-/* Estilo quando o botão está ativado */
-.discreet.active {
-    left: 10px; /* Volta para o canto esquerdo */
-}
-
-/* Estilizando a sidebar */
-.sidebar {
-    width: 250px;
-    background-color: #ff4800;
-    color: #fff;
-    padding: 20px;
-    height: 100%;
     position: fixed;
-    transition: transform 0.1s ease;
+    top: 10px;
+    left: 260px;
+    z-index: 3; /* Para garantir que o botão esteja na frente de tudo */
 }
 
-.sidebar h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+/* Estilo quando o sidebar estiver recolhido */
+.sidebar.hidden {
+    transform: translateX(-250px);
 }
 
-.sidebar ul {
-    list-style-type: none;
+.discreet.hidden {
+    transform: translateX(-260px);
 }
 
-.sidebar ul li {
-    margin-bottom: 10px;
-}
-
-.sidebar ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
-/* Classe para ocultar o sidebar */
-.hidden {
-    transform: translateX(-100%);
-    transition: transform 0.1s ease;
-}
-
-/* Estilizando o conteúdo da página principal */
-.content {
-    margin-left: 250px; /* Largura da sidebar */
-    padding: 20px;
-}
-
-/* Estilos para a barra de rolagem da sidebar */
-.sidebar::-webkit-scrollbar {
-    width: 8px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-    background-color: #888;
-}
-
-.sidebar::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
-
-/* Estilos para a logo dentro do sidebar */
-.logo-sidebar {
-    width: 90%; /* Ajuste o tamanho da logo conforme necessário */
-    margin: 20px auto; /* Centraliza verticalmente e adiciona margem ao redor da logo */
-    display: block; /* Torna a imagem um bloco para centralizar horizontalmente */
+/* Estilo quando o sidebar estiver visível */
+.sidebar:not(.hidden) {
+    display: block;
 }
